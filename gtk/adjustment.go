@@ -1,26 +1,27 @@
 package gtk_mock
 
-import "github.com/coyim/gotk3adapter/glib_mock"
+import "github.com/coyim/gotk3mocks/glib"
 
 type MockAdjustment struct {
-	glib_mock.MockObject
+	glib.MockObject
 }
 
-func (*MockAdjustment) GetLower() float64 {
-	return 0
+func (m *MockAdjustment) GetLower() float64 {
+	return ret[float64](m.Called(), 0)
 }
 
-func (*MockAdjustment) GetPageSize() float64 {
-	return 0
+func (m *MockAdjustment) GetPageSize() float64 {
+	return ret[float64](m.Called(), 0)
 }
 
-func (*MockAdjustment) GetUpper() float64 {
-	return 0
+func (m *MockAdjustment) GetUpper() float64 {
+	return ret[float64](m.Called(), 0)
 }
 
-func (*MockAdjustment) GetValue() float64 {
-	return 0
+func (m *MockAdjustment) GetValue() float64 {
+	return ret[float64](m.Called(), 0)
 }
 
-func (*MockAdjustment) SetValue(v1 float64) {
+func (m *MockAdjustment) SetValue(v1 float64) {
+	m.Called(v1)
 }

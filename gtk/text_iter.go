@@ -1,282 +1,284 @@
 package gtk_mock
 
 import "github.com/coyim/gotk3adapter/gtki"
+import "github.com/stretchr/testify/mock"
 
 type MockTextIter struct {
+	mock.Mock
 }
 
-func (*MockTextIter) BackwardChar() bool {
-	return false
+func (m *MockTextIter) BackwardChar() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockTextIter) BackwardChars(int) bool {
-	return false
+func (m *MockTextIter) BackwardChars(v1 int) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockTextIter) BackwardCursorPosition() bool {
-	return false
+func (m *MockTextIter) BackwardCursorPosition() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockTextIter) BackwardCursorPositions(int) bool {
-	return false
+func (m *MockTextIter) BackwardCursorPositions(v1 int) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockTextIter) BackwardLine() bool {
-	return false
+func (m *MockTextIter) BackwardLine() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockTextIter) BackwardLines(int) bool {
-	return false
+func (m *MockTextIter) BackwardLines(v1 int) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockTextIter) BackwardToTagToggle(gtki.TextTag) bool {
-	return false
+func (m *MockTextIter) BackwardToTagToggle(v1 gtki.TextTag) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockTextIter) BackwardVisibleCursorPosition() bool {
-	return false
+func (m *MockTextIter) BackwardVisibleCursorPosition() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockTextIter) BackwardVisibleCursorPositions(int) bool {
-	return false
+func (m *MockTextIter) BackwardVisibleCursorPositions(v1 int) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockTextIter) BackwardVisibleLine() bool {
-	return false
+func (m *MockTextIter) BackwardVisibleLine() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockTextIter) BackwardVisibleLines(int) bool {
-	return false
+func (m *MockTextIter) BackwardVisibleLines(v1 int) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockTextIter) CanInsert(bool) bool {
-	return false
+func (m *MockTextIter) CanInsert(v1 bool) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockTextIter) Compare(gtki.TextIter) int {
-	return 0
+func (m *MockTextIter) Compare(v1 gtki.TextIter) int {
+	return m.Called(v1).Int(0)
 }
 
-func (*MockTextIter) Editable(bool) bool {
-	return false
+func (m *MockTextIter) Editable(v1 bool) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockTextIter) EndsLine() bool {
-	return false
+func (m *MockTextIter) EndsLine() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockTextIter) EndsSentence() bool {
-	return false
+func (m *MockTextIter) EndsSentence() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockTextIter) EndsTag(gtki.TextTag) bool {
-	return false
+func (m *MockTextIter) EndsTag(v1 gtki.TextTag) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockTextIter) EndsWord() bool {
-	return false
+func (m *MockTextIter) EndsWord() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockTextIter) Equal(gtki.TextIter) bool {
-	return false
+func (m *MockTextIter) Equal(v1 gtki.TextIter) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockTextIter) ForwardChar() bool {
-	return false
+func (m *MockTextIter) ForwardChar() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockTextIter) ForwardChars(int) bool {
-	return false
+func (m *MockTextIter) ForwardChars(v1 int) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockTextIter) ForwardCursorPosition() bool {
-	return false
+func (m *MockTextIter) ForwardCursorPosition() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockTextIter) ForwardCursorPositions(int) bool {
-	return false
+func (m *MockTextIter) ForwardCursorPositions(v1 int) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockTextIter) ForwardLine() bool {
-	return false
+func (m *MockTextIter) ForwardLine() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockTextIter) ForwardLines(int) bool {
-	return false
+func (m *MockTextIter) ForwardLines(v1 int) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockTextIter) ForwardSentenceEnd() bool {
-	return false
+func (m *MockTextIter) ForwardSentenceEnd() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockTextIter) ForwardSentenceEnds(int) bool {
-	return false
+func (m *MockTextIter) ForwardSentenceEnds(v1 int) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockTextIter) ForwardToEnd() {
-
+func (m *MockTextIter) ForwardToEnd() {
+	m.Called()
 }
 
-func (*MockTextIter) ForwardToLineEnd() bool {
-	return false
+func (m *MockTextIter) ForwardToLineEnd() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockTextIter) ForwardToTagToggle(gtki.TextTag) bool {
-	return false
+func (m *MockTextIter) ForwardToTagToggle(v1 gtki.TextTag) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockTextIter) ForwardVisibleCursorPosition() bool {
-	return false
+func (m *MockTextIter) ForwardVisibleCursorPosition() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockTextIter) ForwardVisibleCursorPositions(int) bool {
-	return false
+func (m *MockTextIter) ForwardVisibleCursorPositions(v1 int) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockTextIter) ForwardVisibleLine() bool {
-	return false
+func (m *MockTextIter) ForwardVisibleLine() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockTextIter) ForwardVisibleLines(int) bool {
-	return false
+func (m *MockTextIter) ForwardVisibleLines(v1 int) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockTextIter) ForwardVisibleWordEnd() bool {
-	return false
+func (m *MockTextIter) ForwardVisibleWordEnd() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockTextIter) ForwardVisibleWordEnds(int) bool {
-	return false
+func (m *MockTextIter) ForwardVisibleWordEnds(v1 int) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockTextIter) ForwardWordEnd() bool {
-	return false
+func (m *MockTextIter) ForwardWordEnd() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockTextIter) ForwardWordEnds(int) bool {
-	return false
+func (m *MockTextIter) ForwardWordEnds(v1 int) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockTextIter) GetBuffer() gtki.TextBuffer {
-	return nil
+func (m *MockTextIter) GetBuffer() gtki.TextBuffer {
+	return ret[gtki.TextBuffer](m.Called(), 0)
 }
 
-func (*MockTextIter) GetBytesInLine() int {
-	return 0
+func (m *MockTextIter) GetBytesInLine() int {
+	return m.Called().Int(0)
 }
 
-func (*MockTextIter) GetChar() rune {
-	return 0
+func (m *MockTextIter) GetChar() rune {
+	return ret[rune](m.Called(), 0)
 }
 
-func (*MockTextIter) GetCharsInLine() int {
-	return 0
+func (m *MockTextIter) GetCharsInLine() int {
+	return m.Called().Int(0)
 }
 
-func (*MockTextIter) GetLine() int {
-	return 0
+func (m *MockTextIter) GetLine() int {
+	return m.Called().Int(0)
 }
 
-func (*MockTextIter) GetLineIndex() int {
-	return 0
+func (m *MockTextIter) GetLineIndex() int {
+	return m.Called().Int(0)
 }
 
-func (*MockTextIter) GetLineOffset() int {
-	return 0
+func (m *MockTextIter) GetLineOffset() int {
+	return m.Called().Int(0)
 }
 
-func (*MockTextIter) GetOffset() int {
-	return 0
+func (m *MockTextIter) GetOffset() int {
+	return m.Called().Int(0)
 }
 
-func (*MockTextIter) GetSlice(gtki.TextIter) string {
-	return ""
+func (m *MockTextIter) GetSlice(v1 gtki.TextIter) string {
+	return m.Called(v1).String(0)
 }
 
-func (*MockTextIter) GetText(gtki.TextIter) string {
-	return ""
+func (m *MockTextIter) GetText(v1 gtki.TextIter) string {
+	return m.Called(v1).String(0)
 }
 
-func (*MockTextIter) GetVisibleLineIndex() int {
-	return 0
+func (m *MockTextIter) GetVisibleLineIndex() int {
+	return m.Called().Int(0)
 }
 
-func (*MockTextIter) GetVisibleLineOffset() int {
-	return 0
+func (m *MockTextIter) GetVisibleLineOffset() int {
+	return m.Called().Int(0)
 }
 
-func (*MockTextIter) GetVisibleSlice(gtki.TextIter) string {
-	return ""
+func (m *MockTextIter) GetVisibleSlice(v1 gtki.TextIter) string {
+	return m.Called(v1).String(0)
 }
 
-func (*MockTextIter) GetVisibleText(gtki.TextIter) string {
-	return ""
+func (m *MockTextIter) GetVisibleText(v1 gtki.TextIter) string {
+	return m.Called(v1).String(0)
 }
 
-func (*MockTextIter) HasTag(gtki.TextTag) bool {
-	return false
+func (m *MockTextIter) HasTag(v1 gtki.TextTag) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockTextIter) InRange(gtki.TextIter, gtki.TextIter) bool {
-	return false
+func (m *MockTextIter) InRange(v1 gtki.TextIter, v2 gtki.TextIter) bool {
+	return m.Called(v1, v2).Bool(0)
 }
 
-func (*MockTextIter) InsideSentence() bool {
-	return false
+func (m *MockTextIter) InsideSentence() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockTextIter) InsideWord() bool {
-	return false
+func (m *MockTextIter) InsideWord() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockTextIter) IsCursorPosition() bool {
-	return false
+func (m *MockTextIter) IsCursorPosition() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockTextIter) IsEnd() bool {
-	return false
+func (m *MockTextIter) IsEnd() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockTextIter) IsStart() bool {
-	return false
+func (m *MockTextIter) IsStart() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockTextIter) SetLine(int) {
-
+func (m *MockTextIter) SetLine(v1 int) {
+	m.Called(v1)
 }
-
-func (*MockTextIter) SetLineIndex(int) {
 
+func (m *MockTextIter) SetLineIndex(v1 int) {
+	m.Called(v1)
 }
 
-func (*MockTextIter) SetLineOffset(int) {
-
+func (m *MockTextIter) SetLineOffset(v1 int) {
+	m.Called(v1)
 }
-
-func (*MockTextIter) SetOffset(int) {
 
+func (m *MockTextIter) SetOffset(v1 int) {
+	m.Called(v1)
 }
 
-func (*MockTextIter) SetVisibleLineIndex(int) {
-
+func (m *MockTextIter) SetVisibleLineIndex(v1 int) {
+	m.Called(v1)
 }
-
-func (*MockTextIter) SetVisibleLineOffset(int) {
 
+func (m *MockTextIter) SetVisibleLineOffset(v1 int) {
+	m.Called(v1)
 }
 
-func (*MockTextIter) StartsLine() bool {
-	return false
+func (m *MockTextIter) StartsLine() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockTextIter) StartsSentence() bool {
-	return false
+func (m *MockTextIter) StartsSentence() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockTextIter) StartsWord() bool {
-	return false
+func (m *MockTextIter) StartsWord() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockTextIter) TogglesTag(gtki.TextTag) bool {
-	return false
+func (m *MockTextIter) TogglesTag(v1 gtki.TextTag) bool {
+	return m.Called(v1).Bool(0)
 }

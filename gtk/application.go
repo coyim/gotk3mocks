@@ -1,75 +1,87 @@
 package gtk_mock
 
 import (
-	"github.com/coyim/gotk3adapter/glib_mock"
 	"github.com/coyim/gotk3adapter/glibi"
 	"github.com/coyim/gotk3adapter/gtki"
+	"github.com/coyim/gotk3mocks/glib"
 )
 
 type MockApplication struct {
-	glib_mock.MockApplication
+	glib.MockApplication
 }
 
-func (*MockApplication) GetActiveWindow() gtki.Window {
-	return nil
+func (m *MockApplication) GetActiveWindow() gtki.Window {
+	return ret[gtki.Window](m.Called(), 0)
 }
 
-func (*MockApplication) AddWindow(gtki.Window)    {}
-func (*MockApplication) RemoveWindow(gtki.Window) {}
-func (*MockApplication) PrefersAppMenu() bool {
-	return false
+func (m *MockApplication) AddWindow(v1 gtki.Window) {
+	m.Called(v1)
 }
 
-func (*MockApplication) GetAppMenu() glibi.MenuModel {
-	return nil
+func (m *MockApplication) RemoveWindow(v1 gtki.Window) {
+	m.Called(v1)
 }
 
-func (*MockApplication) SetAppMenu(glibi.MenuModel) {
+func (m *MockApplication) PrefersAppMenu() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockApplication) GetMenubar() glibi.MenuModel {
-	return nil
+func (m *MockApplication) GetAppMenu() glibi.MenuModel {
+	return ret[glibi.MenuModel](m.Called(), 0)
 }
 
-func (*MockApplication) SetMenubar(glibi.MenuModel) {
+func (m *MockApplication) SetAppMenu(v1 glibi.MenuModel) {
+	m.Called(v1)
 }
 
-func (*MockApplication) LookupAction(actionName string) glibi.Action {
-	return nil
+func (m *MockApplication) GetMenubar() glibi.MenuModel {
+	return ret[glibi.MenuModel](m.Called(), 0)
 }
 
-func (*MockApplication) AddAction(action glibi.Action) {
+func (m *MockApplication) SetMenubar(v1 glibi.MenuModel) {
+	m.Called(v1)
 }
 
-func (*MockApplication) RemoveAction(actionName string) {
+func (m *MockApplication) LookupAction(v1 string) glibi.Action {
+	return ret[glibi.Action](m.Called(v1), 0)
 }
 
-func (*MockApplication) HasAction(actionName string) bool {
-	return false
+func (m *MockApplication) AddAction(v1 glibi.Action) {
+	m.Called(v1)
 }
 
-func (*MockApplication) GetActionEnabled(actionName string) bool {
-	return false
+func (m *MockApplication) RemoveAction(v1 string) {
+	m.Called(v1)
 }
 
-func (*MockApplication) GetActionParameterType(actionName string) glibi.VariantType {
-	return nil
+func (m *MockApplication) HasAction(v1 string) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockApplication) GetActionStateType(actionName string) glibi.VariantType {
-	return nil
+func (m *MockApplication) GetActionEnabled(v1 string) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockApplication) GetActionState(actionName string) glibi.Variant {
-	return nil
+func (m *MockApplication) GetActionParameterType(v1 string) glibi.VariantType {
+	return ret[glibi.VariantType](m.Called(v1), 0)
 }
 
-func (*MockApplication) GetActionStateHint(actionName string) glibi.Variant {
-	return nil
+func (m *MockApplication) GetActionStateType(v1 string) glibi.VariantType {
+	return ret[glibi.VariantType](m.Called(v1), 0)
 }
 
-func (*MockApplication) ChangeActionState(actionName string, value glibi.Variant) {
+func (m *MockApplication) GetActionState(v1 string) glibi.Variant {
+	return ret[glibi.Variant](m.Called(v1), 0)
 }
 
-func (*MockApplication) Activate(actionName string, parameter glibi.Variant) {
+func (m *MockApplication) GetActionStateHint(v1 string) glibi.Variant {
+	return ret[glibi.Variant](m.Called(v1), 0)
+}
+
+func (m *MockApplication) ChangeActionState(v1 string, v2 glibi.Variant) {
+	m.Called(v1, v2)
+}
+
+func (m *MockApplication) Activate(v1 string, v2 glibi.Variant) {
+	m.Called(v1, v2)
 }

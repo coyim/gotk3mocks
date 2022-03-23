@@ -4,17 +4,22 @@ type MockAboutDialog struct {
 	MockDialog
 }
 
-func (*MockAboutDialog) SetAuthors(v1 []string) {
+func (m *MockAboutDialog) SetAuthors(v1 []string) {
+	m.Called(v1)
 }
 
-func (*MockAboutDialog) SetProgramName(v1 string) {
+func (m *MockAboutDialog) SetProgramName(v1 string) {
+	m.Called(v1)
 }
 
-func (*MockAboutDialog) SetVersion(v1 string) {
+func (m *MockAboutDialog) SetVersion(v1 string) {
+	m.Called(v1)
 }
 
-func (*MockAboutDialog) SetLicense(v1 string) {
+func (m *MockAboutDialog) SetLicense(v1 string) {
+	m.Called(v1)
 }
 
-func (*MockAboutDialog) SetWrapLicense(v1 bool) {
+func (m *MockAboutDialog) SetWrapLicense(v1 bool) {
+	m.Called(v1)
 }

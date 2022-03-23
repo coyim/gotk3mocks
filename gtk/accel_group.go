@@ -2,13 +2,14 @@ package gtk_mock
 
 import (
 	"github.com/coyim/gotk3adapter/gdki"
-	"github.com/coyim/gotk3adapter/glib_mock"
 	"github.com/coyim/gotk3adapter/gtki"
+	"github.com/coyim/gotk3mocks/glib"
 )
 
 type MockAccelGroup struct {
-	glib_mock.MockObject
+	glib.MockObject
 }
 
-func (*MockAccelGroup) Connect2(v2 uint, v3 gdki.ModifierType, v4 gtki.AccelFlags, v5 interface{}) {
+func (m *MockAccelGroup) Connect2(v2 uint, v3 gdki.ModifierType, v4 gtki.AccelFlags, v5 interface{}) {
+	m.Called(v2, v3, v4, v5)
 }
