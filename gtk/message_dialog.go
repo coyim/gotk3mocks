@@ -1,4 +1,4 @@
-package gtk_mock
+package gtk
 
 type MockMessageDialog struct {
 	MockDialog

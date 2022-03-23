@@ -1,4 +1,4 @@
-package gtk_mock
+package gtk
 
 // MockProgressBar is a mock of the representation of GTK's GtkProgressBar.
 type MockProgressBar struct {

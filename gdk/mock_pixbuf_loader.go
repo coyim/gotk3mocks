@@ -1,4 +1,4 @@
-package gdk_mock
+package gdk
 
 import (
 	"github.com/coyim/gotk3adapter/gdki"

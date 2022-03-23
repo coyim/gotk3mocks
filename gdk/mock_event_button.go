@@ -1,4 +1,4 @@
-package gdk_mock
+package gdk
 
 type MockEventButton struct {
 	MockEvent

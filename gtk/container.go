@@ -1,4 +1,4 @@
-package gtk_mock
+package gtk
 
 import "github.com/coyim/gotk3adapter/gtki"
 
@@ -6,15 +6,18 @@ type MockContainer struct {
 	MockWidget
 }
 
-func (*MockContainer) Add(v2 gtki.Widget) {
+func (m *MockContainer) Add(v1 gtki.Widget) {
+	m.Called(v1)
 }
 
-func (*MockContainer) Remove(v2 gtki.Widget) {
+func (m *MockContainer) Remove(v1 gtki.Widget) {
+	m.Called(v1)
 }
 
-func (*MockContainer) SetBorderWidth(v1 uint) {
+func (m *MockContainer) SetBorderWidth(v1 uint) {
+	m.Called(v1)
 }
 
-func (*MockContainer) GetChildren() []gtki.Widget {
-	return nil
+func (m *MockContainer) GetChildren() []gtki.Widget {
+	return ret[[]gtki.Widget](m.Called(), 0)
 }

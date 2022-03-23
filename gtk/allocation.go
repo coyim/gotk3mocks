@@ -1,13 +1,13 @@
-package gtk_mock
+package gtk
 
 import (
-	"github.com/coyim/gotk3adapter/gdk_mock"
+	"github.com/coyim/gotk3mocks/gdk"
 )
 
 type MockAllocation struct {
-	gdk_mock.MockRectangle
+	gdk.MockRectangle
 }
 
-func (*MockAllocation) GetY() int {
-	return 0
+func (m *MockAllocation) GetY() int {
+	return m.Called().Int(0)
 }

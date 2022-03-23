@@ -1,4 +1,4 @@
-package gdk_mock
+package gdk
 
 import "github.com/stretchr/testify/mock"
 
