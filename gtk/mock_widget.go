@@ -2,125 +2,153 @@ package gtk_mock
 
 import (
 	"github.com/coyim/gotk3adapter/gdki"
-	"github.com/coyim/gotk3adapter/glib_mock"
 	"github.com/coyim/gotk3adapter/glibi"
 	"github.com/coyim/gotk3adapter/gtki"
+	"github.com/coyim/gotk3mocks/glib"
 )
 
 type MockWidget struct {
-	glib_mock.MockObject
+	glib.MockObject
 }
 
-func (*MockWidget) Map() {
+func (m *MockWidget) Map() {
+	m.Called()
 }
 
-func (*MockWidget) SetHExpand(v1 bool) {
+func (m *MockWidget) SetHExpand(v1 bool) {
+	m.Called(v1)
 }
 
-func (*MockWidget) SetVExpand(v1 bool) {
+func (m *MockWidget) SetVExpand(v1 bool) {
+	m.Called(v1)
 }
 
-func (*MockWidget) SetSensitive(v1 bool) {
+func (m *MockWidget) SetSensitive(v1 bool) {
+	m.Called(v1)
 }
 
-func (*MockWidget) IsSensitive() bool {
-	return false
+func (m *MockWidget) IsSensitive() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockWidget) SetTooltipText(v1 string) {
+func (m *MockWidget) SetTooltipText(v1 string) {
+	m.Called(v1)
 }
 
-func (*MockWidget) SetVisible(v1 bool) {
+func (m *MockWidget) SetVisible(v1 bool) {
+	m.Called(v1)
 }
 
-func (*MockWidget) IsVisible() bool {
-	return false
+func (m *MockWidget) IsVisible() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockWidget) SetName(v1 string) {
+func (m *MockWidget) SetName(v1 string) {
+	m.Called(v1)
 }
 
-func (*MockWidget) SetNoShowAll(noShow bool) {
+func (m *MockWidget) SetNoShowAll(v1 bool) {
+	m.Called(v1)
 }
 
-func (*MockWidget) SetMarginTop(v1 int) {
+func (m *MockWidget) SetMarginTop(v1 int) {
+	m.Called(v1)
 }
 
-func (*MockWidget) SetMarginBottom(v1 int) {
+func (m *MockWidget) SetMarginBottom(v1 int) {
+	m.Called(v1)
 }
 
-func (*MockWidget) SetSizeRequest(v1, v2 int) {
+func (m *MockWidget) SetSizeRequest(v1, v2 int) {
+	m.Called(v1, v2)
 }
 
-func (*MockWidget) GetAllocatedHeight() int {
-	return 0
+func (m *MockWidget) GetAllocatedHeight() int {
+	return m.Called().Int(0)
 }
 
-func (*MockWidget) GetName() (string, error) {
-	return "", nil
+func (m *MockWidget) GetName() (string, error) {
+	args := m.Called()
+	return args.String(0), args.Error(1)
 }
 
-func (*MockWidget) GetAllocatedWidth() int {
-	return 0
+func (m *MockWidget) GetAllocatedWidth() int {
+	return m.Called().Int(0)
 }
 
-func (*MockWidget) GetAllocation() gtki.Allocation {
-	return nil
+func (m *MockWidget) GetAllocation() gtki.Allocation {
+	return ret[gtki.Allocation](m.Called(), 0)
 }
 
-func (*MockWidget) GetParent() (gtki.Widget, error) {
-	return nil, nil
+func (m *MockWidget) GetParent() (gtki.Widget, error) {
+	args := m.Called()
+	return ret[gtki.Widget](args, 0), args.Error(1)
 }
 
-func (*MockWidget) GetParentX() (gtki.Widget, error) {
-	return nil, nil
+func (m *MockWidget) GetParentX() (gtki.Widget, error) {
+	args := m.Called()
+	return ret[gtki.Widget](args, 0), args.Error(1)
 }
 
-func (*MockWidget) GrabFocus() {
+func (m *MockWidget) GrabFocus() {
+	m.Called()
 }
 
-func (*MockWidget) GrabDefault() {
+func (m *MockWidget) GrabDefault() {
+	m.Called()
 }
 
-func (*MockWidget) HasFocus() bool {
-	return false
+func (m *MockWidget) HasFocus() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockWidget) Hide() {
+func (m *MockWidget) Hide() {
+	m.Called()
 }
 
-func (*MockWidget) HideOnDelete() {
+func (m *MockWidget) HideOnDelete() {
+	m.Called()
 }
 
-func (*MockWidget) SetCanFocus(v1 bool) {
+func (m *MockWidget) SetCanFocus(v1 bool) {
+	m.Called(v1)
 }
 
-func (*MockWidget) Show() {
+func (m *MockWidget) Show() {
+	m.Called()
 }
 
-func (*MockWidget) ShowAll() {
+func (m *MockWidget) ShowAll() {
+	m.Called()
 }
 
-func (*MockWidget) GetWindow() (gdki.Window, error) {
-	return nil, nil
+func (m *MockWidget) GetWindow() (gdki.Window, error) {
+	args := m.Called()
+	return ret[gdki.Window](args, 0), args.Error(1)
 }
 
-func (*MockWidget) GetStyleContext() (gtki.StyleContext, error) {
-	return nil, nil
+func (m *MockWidget) GetStyleContext() (gtki.StyleContext, error) {
+	args := m.Called()
+	return ret[gtki.StyleContext](args, 0), args.Error(1)
 }
 
-func (*MockWidget) SetHAlign(v2 gtki.Align) {
+func (m *MockWidget) SetHAlign(v1 gtki.Align) {
+	m.Called(v1)
 }
 
-func (*MockWidget) SetVAlign(v2 gtki.Align) {
+func (m *MockWidget) SetVAlign(v1 gtki.Align) {
+	m.Called(v1)
 }
 
-func (*MockWidget) SetOpacity(v2 float64) {
+func (m *MockWidget) SetOpacity(v1 float64) {
+	m.Called(v1)
 }
 
-func (*MockWidget) Destroy() {
+func (m *MockWidget) Destroy() {
+	m.Called()
 }
 
-func (*MockWidget) TemplateChild(string) (glibi.Object, error) {
-	return nil, nil
+func (m *MockWidget) TemplateChild(v1 string) (glibi.Object, error) {
+	args := m.Called()
+	return ret[glibi.Object](args, 0), args.Error(1)
 }
