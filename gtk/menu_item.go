@@ -6,12 +6,14 @@ type MockMenuItem struct {
 	MockBin
 }
 
-func (*MockMenuItem) GetLabel() string {
-	return ""
+func (m *MockMenuItem) GetLabel() string {
+	return m.Called().String(0)
 }
 
-func (*MockMenuItem) SetLabel(v1 string) {
+func (m *MockMenuItem) SetLabel(v1 string) {
+	m.Called(v1)
 }
 
-func (*MockMenuItem) SetSubmenu(v1 gtki.Widget) {
+func (m *MockMenuItem) SetSubmenu(v1 gtki.Widget) {
+	m.Called(v1)
 }

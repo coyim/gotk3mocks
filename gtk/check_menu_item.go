@@ -4,9 +4,10 @@ type MockCheckMenuItem struct {
 	MockMenuItem
 }
 
-func (*MockCheckMenuItem) GetActive() bool {
-	return false
+func (m *MockCheckMenuItem) GetActive() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockCheckMenuItem) SetActive(v1 bool) {
+func (m *MockCheckMenuItem) SetActive(v1 bool) {
+	m.Called(v1)
 }

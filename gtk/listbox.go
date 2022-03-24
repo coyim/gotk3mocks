@@ -6,13 +6,14 @@ type MockListBox struct {
 	MockContainer
 }
 
-func (*MockListBox) SelectRow(gtki.ListBoxRow) {
+func (m *MockListBox) SelectRow(v1 gtki.ListBoxRow) {
+	m.Called(v1)
 }
 
-func (*MockListBox) GetRowAtIndex(int) gtki.ListBoxRow {
-	return nil
+func (m *MockListBox) GetRowAtIndex(v1 int) gtki.ListBoxRow {
+	return ret[gtki.ListBoxRow](m.Called(v1), 0)
 }
 
-func (*MockListBox) GetSelectedRow() gtki.ListBoxRow {
-	return nil
+func (m *MockListBox) GetSelectedRow() gtki.ListBoxRow {
+	return ret[gtki.ListBoxRow](m.Called(), 0)
 }

@@ -6,5 +6,6 @@ type MockCSSClassCellRenderer struct {
 	MockCellRenderer
 }
 
-func (*MockCSSClassCellRenderer) SetReal(real gtki.CellRenderer) {
+func (m *MockCSSClassCellRenderer) SetReal(v1 gtki.CellRenderer) {
+	m.Called(v1)
 }

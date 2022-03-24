@@ -6,46 +6,51 @@ type MockTextView struct {
 	MockContainer
 }
 
-func (*MockTextView) SetEditable(v1 bool) {
+func (m *MockTextView) SetEditable(v1 bool) {
+	m.Called(v1)
 }
 
-func (*MockTextView) SetCursorVisible(v1 bool) {
+func (m *MockTextView) SetCursorVisible(v1 bool) {
+	m.Called(v1)
 }
 
-func (*MockTextView) SetBuffer(v1 gtki.TextBuffer) {
+func (m *MockTextView) SetBuffer(v1 gtki.TextBuffer) {
+	m.Called(v1)
 }
 
-func (*MockTextView) GetBuffer() (gtki.TextBuffer, error) {
-	return nil, nil
+func (m *MockTextView) GetBuffer() (gtki.TextBuffer, error) {
+	args := m.Called()
+	return ret[gtki.TextBuffer](args, 0), args.Error(1)
 }
 
-func (*MockTextView) ForwardDisplayLine(gtki.TextIter) bool {
-	return false
+func (m *MockTextView) ForwardDisplayLine(v1 gtki.TextIter) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockTextView) BackwardDisplayLine(gtki.TextIter) bool {
-	return false
+func (m *MockTextView) BackwardDisplayLine(v1 gtki.TextIter) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockTextView) ForwardDisplayLineEnd(gtki.TextIter) bool {
-	return false
+func (m *MockTextView) ForwardDisplayLineEnd(v1 gtki.TextIter) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockTextView) BackwardDisplayLineStart(gtki.TextIter) bool {
-	return false
+func (m *MockTextView) BackwardDisplayLineStart(v1 gtki.TextIter) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockTextView) StartsDisplayLine(gtki.TextIter) bool {
-	return false
+func (m *MockTextView) StartsDisplayLine(v1 gtki.TextIter) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockTextView) SetJustification(gtki.Justification) {
+func (m *MockTextView) SetJustification(v1 gtki.Justification) {
+	m.Called(v1)
 }
 
-func (*MockTextView) GetJustification() gtki.Justification {
-	return gtki.JUSTIFY_LEFT
+func (m *MockTextView) GetJustification() gtki.Justification {
+	return ret[gtki.Justification](m.Called(), 0)
 }
 
-func (*MockTextView) MoveVisually(gtki.TextIter, int) bool {
-	return false
+func (m *MockTextView) MoveVisually(v1 gtki.TextIter, v2 int) bool {
+	return m.Called(v1).Bool(0)
 }

@@ -6,43 +6,52 @@ type MockInfoBar struct {
 	MockBox
 }
 
-func (*MockInfoBar) GetOrientation() gtki.Orientation {
-	return gtki.HorizontalOrientation
+func (m *MockInfoBar) GetOrientation() gtki.Orientation {
+	return ret[gtki.Orientation](m.Called(), 0)
 }
 
-func (*MockInfoBar) SetOrientation(o gtki.Orientation) {
+func (m *MockInfoBar) SetOrientation(v1 gtki.Orientation) {
+	m.Called(v1)
 }
 
-func (*MockInfoBar) AddActionWidget(w gtki.Widget, responseId gtki.ResponseType) {
+func (m *MockInfoBar) AddActionWidget(v1 gtki.Widget, v2 gtki.ResponseType) {
+	m.Called(v1, v2)
 }
 
-func (*MockInfoBar) AddButton(buttonText string, responseId gtki.ResponseType) {
+func (m *MockInfoBar) AddButton(v1 string, v2 gtki.ResponseType) {
+	m.Called(v1, v2)
 }
 
-func (*MockInfoBar) SetResponseSensitive(responseId gtki.ResponseType, setting bool) {
+func (m *MockInfoBar) SetResponseSensitive(v1 gtki.ResponseType, v2 bool) {
+	m.Called(v1, v2)
 }
 
-func (*MockInfoBar) SetDefaultResponse(responseId gtki.ResponseType) {
+func (m *MockInfoBar) SetDefaultResponse(v1 gtki.ResponseType) {
+	m.Called(v1)
 }
 
-func (*MockInfoBar) SetMessageType(messageType gtki.MessageType) {
+func (m *MockInfoBar) SetMessageType(v1 gtki.MessageType) {
+	m.Called(v1)
 }
 
-func (*MockInfoBar) GetMessageType() gtki.MessageType {
-	return gtki.MESSAGE_OTHER
+func (m *MockInfoBar) GetMessageType() gtki.MessageType {
+	return ret[gtki.MessageType](m.Called(), 0)
 }
 
-func (*MockInfoBar) GetActionArea() (gtki.Widget, error) {
-	return nil, nil
+func (m *MockInfoBar) GetActionArea() (gtki.Widget, error) {
+	args := m.Called()
+	return ret[gtki.Widget](args, 0), args.Error(1)
 }
 
-func (*MockInfoBar) GetContentArea() (gtki.Box, error) {
-	return nil, nil
+func (m *MockInfoBar) GetContentArea() (gtki.Box, error) {
+	args := m.Called()
+	return ret[gtki.Box](args, 0), args.Error(1)
 }
 
-func (*MockInfoBar) GetShowCloseButton() bool {
-	return false
+func (m *MockInfoBar) GetShowCloseButton() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockInfoBar) SetShowCloseButton(setting bool) {
+func (m *MockInfoBar) SetShowCloseButton(v1 bool) {
+	m.Called(v1)
 }

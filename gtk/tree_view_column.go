@@ -1,7 +1,7 @@
 package gtk
 
-import "github.com/coyim/gotk3adapter/glib_mock"
+import "github.com/coyim/gotk3mocks/glib"
 
 type MockTreeViewColumn struct {
-	glib_mock.MockObject
+	glib.MockObject
 }

@@ -6,5 +6,6 @@ type MockGrid struct {
 	MockContainer
 }
 
-func (*MockGrid) Attach(v1 gtki.Widget, v2, v3, v4, v5 int) {
+func (m *MockGrid) Attach(v1 gtki.Widget, v2, v3, v4, v5 int) {
+	m.Called(v1, v2, v3, v4, v5)
 }

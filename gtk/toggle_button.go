@@ -4,9 +4,10 @@ type MockToggleButton struct {
 	MockButton
 }
 
-func (*MockToggleButton) GetActive() bool {
-	return false
+func (m *MockToggleButton) GetActive() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockToggleButton) SetActive(bool) {
+func (m *MockToggleButton) SetActive(v1 bool) {
+	m.Called(v1)
 }

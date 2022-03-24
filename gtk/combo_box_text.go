@@ -4,12 +4,14 @@ type MockComboBoxText struct {
 	MockComboBox
 }
 
-func (*MockComboBoxText) AppendText(v1 string) {
+func (m *MockComboBoxText) AppendText(v1 string) {
+	m.Called(v1)
 }
 
-func (*MockComboBoxText) GetActiveText() string {
-	return ""
+func (m *MockComboBoxText) GetActiveText() string {
+	return m.Called().String(0)
 }
 
-func (*MockComboBoxText) RemoveAll() {
+func (m *MockComboBoxText) RemoveAll() {
+	m.Called()
 }

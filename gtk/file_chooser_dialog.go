@@ -4,12 +4,14 @@ type MockFileChooserDialog struct {
 	MockDialog
 }
 
-func (*MockFileChooserDialog) GetFilename() string {
-	return ""
+func (m *MockFileChooserDialog) GetFilename() string {
+	return m.Called().String(0)
 }
 
-func (*MockFileChooserDialog) SetCurrentName(v1 string) {
+func (m *MockFileChooserDialog) SetCurrentName(v1 string) {
+	m.Called(v1)
 }
 
-func (*MockFileChooserDialog) SetDoOverwriteConfirmation(v1 bool) {
+func (m *MockFileChooserDialog) SetDoOverwriteConfirmation(v1 bool) {
+	m.Called(v1)
 }

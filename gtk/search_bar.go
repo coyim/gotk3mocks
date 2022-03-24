@@ -9,22 +9,26 @@ type MockSearchBar struct {
 	MockBin
 }
 
-func (*MockSearchBar) ConnectEntry(v1 gtki.Entry) {
+func (m *MockSearchBar) ConnectEntry(v1 gtki.Entry) {
+	m.Called(v1)
 }
 
-func (*MockSearchBar) GetSearchMode() bool {
-	return false
+func (m *MockSearchBar) GetSearchMode() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockSearchBar) SetSearchMode(v1 bool) {
+func (m *MockSearchBar) SetSearchMode(v1 bool) {
+	m.Called(v1)
 }
 
-func (*MockSearchBar) GetShowCloseButton() bool {
-	return false
+func (m *MockSearchBar) GetShowCloseButton() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockSearchBar) SetShowCloseButton(v1 bool) {
+func (m *MockSearchBar) SetShowCloseButton(v1 bool) {
+	m.Called(v1)
 }
 
-func (*MockSearchBar) HandleEvent(v1 gdki.Event) {
+func (m *MockSearchBar) HandleEvent(v1 gdki.Event) {
+	m.Called(v1)
 }

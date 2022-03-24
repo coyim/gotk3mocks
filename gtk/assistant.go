@@ -8,75 +8,91 @@ type MockAssistant struct {
 	MockWindow
 }
 
-func (a *MockAssistant) Commit() {
+func (m *MockAssistant) Commit() {
+	m.Called()
 }
 
-func (a *MockAssistant) NextPage() {
+func (m *MockAssistant) NextPage() {
+	m.Called()
 }
 
-func (a *MockAssistant) PreviousPage() {
+func (m *MockAssistant) PreviousPage() {
+	m.Called()
 }
 
-func (a *MockAssistant) SetCurrentPage(pageNum int) {
+func (m *MockAssistant) SetCurrentPage(v1 int) {
+	m.Called(v1)
 }
 
-func (a *MockAssistant) GetCurrentPage() int {
-	return 0
+func (m *MockAssistant) GetCurrentPage() int {
+	return m.Called().Int(0)
 }
 
-func (a *MockAssistant) GetNthPage(pageNum int) (gtki.Widget, error) {
-	return nil, nil
+func (m *MockAssistant) GetNthPage(v1 int) (gtki.Widget, error) {
+	args := m.Called(v1)
+	return ret[gtki.Widget](args, 0), args.Error(1)
 }
 
-func (a *MockAssistant) AppendPage(page gtki.Widget) int {
-	return 0
+func (m *MockAssistant) AppendPage(v1 gtki.Widget) int {
+	return m.Called(v1).Int(0)
 }
 
-func (a *MockAssistant) SetPageType(page gtki.Widget, ptype gtki.AssistantPageType) {
+func (m *MockAssistant) SetPageType(v1 gtki.Widget, v2 gtki.AssistantPageType) {
+	m.Called(v1, v2)
 }
 
-func (a *MockAssistant) GetPageType(page gtki.Widget) gtki.AssistantPageType {
-	return gtki.ASSISTANT_PAGE_SUMMARY
+func (m *MockAssistant) GetPageType(v1 gtki.Widget) gtki.AssistantPageType {
+	return ret[gtki.AssistantPageType](m.Called(v1), 0)
 }
 
-func (a *MockAssistant) SetPageComplete(page gtki.Widget, complete bool) {
+func (m *MockAssistant) SetPageComplete(v1 gtki.Widget, v2 bool) {
+	m.Called(v1, v2)
 }
 
-func (a *MockAssistant) GetPageComplete(page gtki.Widget) bool {
-	return true
+func (m *MockAssistant) GetPageComplete(v1 gtki.Widget) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (a *MockAssistant) AddActionWidget(child gtki.Widget) {
+func (m *MockAssistant) AddActionWidget(v1 gtki.Widget) {
+	m.Called(v1)
 }
 
-func (a *MockAssistant) RemoveActionWidget(child gtki.Widget) {
+func (m *MockAssistant) RemoveActionWidget(v1 gtki.Widget) {
+	m.Called(v1)
 }
 
-func (a *MockAssistant) UpdateButtonsState() {
+func (m *MockAssistant) UpdateButtonsState() {
+	m.Called()
 }
 
-func (a *MockAssistant) SetPageTitle(page gtki.Widget, title string) {
+func (m *MockAssistant) SetPageTitle(v1 gtki.Widget, v2 string) {
+	m.Called(v1, v2)
 }
 
-func (a *MockAssistant) GetButtons() []gtki.Button {
-	return nil
+func (m *MockAssistant) GetButtons() []gtki.Button {
+	return ret[[]gtki.Button](m.Called(), 0)
 }
 
-func (a *MockAssistant) GetButtonSizeGroup() (gtki.SizeGroup, error) {
-	return nil, nil
+func (m *MockAssistant) GetButtonSizeGroup() (gtki.SizeGroup, error) {
+	args := m.Called()
+	return ret[gtki.SizeGroup](args, 0), args.Error(1)
 }
 
-func (a *MockAssistant) GetHeaderBar() (gtki.HeaderBar, error) {
-	return nil, nil
+func (m *MockAssistant) GetHeaderBar() (gtki.HeaderBar, error) {
+	args := m.Called()
+	return ret[gtki.HeaderBar](args, 0), args.Error(1)
 }
 
-func (a *MockAssistant) GetSidebar() (gtki.Box, error) {
-	return nil, nil
+func (m *MockAssistant) GetSidebar() (gtki.Box, error) {
+	args := m.Called()
+	return ret[gtki.Box](args, 0), args.Error(1)
 }
 
-func (a *MockAssistant) GetNotebook() (gtki.Notebook, error) {
-	return nil, nil
+func (m *MockAssistant) GetNotebook() (gtki.Notebook, error) {
+	args := m.Called()
+	return ret[gtki.Notebook](args, 0), args.Error(1)
 }
 
-func (a *MockAssistant) HideBottomActionArea() {
+func (m *MockAssistant) HideBottomActionArea() {
+	m.Called()
 }

@@ -9,94 +9,117 @@ type MockWindow struct {
 	MockBin
 }
 
-func (*MockWindow) AddAccelGroup(v2 gtki.AccelGroup) {
+func (m *MockWindow) AddAccelGroup(v1 gtki.AccelGroup) {
+	m.Called(v1)
 }
 
-func (*MockWindow) GetTitle() string {
-	return ""
+func (m *MockWindow) GetTitle() string {
+	return m.Called().String(0)
 }
 
-func (*MockWindow) HasToplevelFocus() bool {
-	return false
+func (m *MockWindow) HasToplevelFocus() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockWindow) Fullscreen() {
+func (m *MockWindow) Fullscreen() {
+	m.Called()
 }
 
-func (*MockWindow) Unfullscreen() {
+func (m *MockWindow) Unfullscreen() {
+	m.Called()
 }
 
-func (*MockWindow) IsActive() bool {
-	return false
+func (m *MockWindow) IsActive() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockWindow) Resize(v1, v2 int) {
+func (m *MockWindow) Resize(v1, v2 int) {
+	m.Called(v1, v2)
 }
 
-func (*MockWindow) SetApplication(v2 gtki.Application) {
+func (m *MockWindow) SetApplication(v1 gtki.Application) {
+	m.Called(v1)
 }
 
-func (*MockWindow) SetIcon(v2 gdki.Pixbuf) {
+func (m *MockWindow) SetIcon(v1 gdki.Pixbuf) {
+	m.Called(v1)
 }
 
-func (*MockWindow) SetTitle(v1 string) {
+func (m *MockWindow) SetTitle(v1 string) {
+	m.Called(v1)
 }
 
-func (*MockWindow) SetTitlebar(v2 gtki.Widget) {
+func (m *MockWindow) SetTitlebar(v1 gtki.Widget) {
+	m.Called(v1)
 }
 
-func (*MockWindow) SetTransientFor(v2 gtki.Window) {
+func (m *MockWindow) SetTransientFor(v1 gtki.Window) {
+	m.Called(v1)
 }
 
-func (*MockWindow) GetTransientFor() (gtki.Window, error) {
-	return nil, nil
+func (m *MockWindow) GetTransientFor() (gtki.Window, error) {
+	args := m.Called()
+	return ret[gtki.Window](args, 0), args.Error(1)
 }
 
-func (*MockWindow) SetUrgencyHint(v2 bool) {
+func (m *MockWindow) SetUrgencyHint(v1 bool) {
+	m.Called(v1)
 }
 
-func (*MockWindow) Present() {
+func (m *MockWindow) Present() {
+	m.Called()
 }
 
-func (*MockWindow) Iconify() {
+func (m *MockWindow) Iconify() {
+	m.Called()
 }
 
-func (*MockWindow) Deiconify() {
+func (m *MockWindow) Deiconify() {
+	m.Called()
 }
 
-func (*MockWindow) Maximize() {
+func (m *MockWindow) Maximize() {
+	m.Called()
 }
 
-func (*MockWindow) Unmaximize() {
+func (m *MockWindow) Unmaximize() {
+	m.Called()
 }
 
-func (*MockWindow) AddMnemonic(v1 uint, v2 gtki.Widget) {
+func (m *MockWindow) AddMnemonic(v1 uint, v2 gtki.Widget) {
+	m.Called(v1, v2)
 }
 
-func (*MockWindow) RemoveMnemonic(v1 uint, v2 gtki.Widget) {
+func (m *MockWindow) RemoveMnemonic(v1 uint, v2 gtki.Widget) {
+	m.Called(v1, v2)
 }
 
-func (*MockWindow) ActivateMnemonic(v1 uint, v2 gdki.ModifierType) bool {
-	return true
+func (m *MockWindow) ActivateMnemonic(v1 uint, v2 gdki.ModifierType) bool {
+	return m.Called(v1, v2).Bool(0)
 }
 
-func (*MockWindow) GetMnemonicModifier() gdki.ModifierType {
-	return gdki.ModifierType(gdki.GDK_SHIFT_MASK)
+func (m *MockWindow) GetMnemonicModifier() gdki.ModifierType {
+	return ret[gdki.ModifierType](m.Called(), 0)
 }
 
-func (*MockWindow) SetMnemonicModifier(v1 gdki.ModifierType) {
+func (m *MockWindow) SetMnemonicModifier(v1 gdki.ModifierType) {
+	m.Called(v1)
 }
 
-func (*MockWindow) SetDecorated(v1 bool) {
+func (m *MockWindow) SetDecorated(v1 bool) {
+	m.Called(v1)
 }
 
-func (*MockWindow) GetSize() (int, int) {
-	return 0, 0
+func (m *MockWindow) GetSize() (int, int) {
+	args := m.Called()
+	return args.Int(0), args.Int(1)
 }
 
-func (*MockWindow) GetPosition() (int, int) {
-	return 0, 0
+func (m *MockWindow) GetPosition() (int, int) {
+	args := m.Called()
+	return args.Int(0), args.Int(1)
 }
 
-func (*MockWindow) Move(v1, v2 int) {
+func (m *MockWindow) Move(v1, v2 int) {
+	m.Called(v1, v2)
 }

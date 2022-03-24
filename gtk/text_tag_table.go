@@ -1,13 +1,14 @@
 package gtk
 
 import (
-	"github.com/coyim/gotk3adapter/glib_mock"
 	"github.com/coyim/gotk3adapter/gtki"
+	"github.com/coyim/gotk3mocks/glib"
 )
 
 type MockTextTagTable struct {
-	glib_mock.MockObject
+	glib.MockObject
 }
 
-func (*MockTextTagTable) Add(v1 gtki.TextTag) {
+func (m *MockTextTagTable) Add(v1 gtki.TextTag) {
+	m.Called(v1)
 }

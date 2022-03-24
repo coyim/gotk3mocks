@@ -9,11 +9,14 @@ type MockImage struct {
 	MockWidget
 }
 
-func (v *MockImage) SetFromIconName(v1 string, v2 gtki.IconSize) {
+func (m *MockImage) SetFromIconName(v1 string, v2 gtki.IconSize) {
+	m.Called(v1, v2)
 }
 
-func (v *MockImage) Clear() {
+func (m *MockImage) Clear() {
+	m.Called()
 }
 
-func (v *MockImage) SetFromPixbuf(pb gdki.Pixbuf) {
+func (m *MockImage) SetFromPixbuf(v1 gdki.Pixbuf) {
+	m.Called(v1)
 }

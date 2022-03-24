@@ -6,6 +6,6 @@ type MockBin struct {
 	MockContainer
 }
 
-func (*MockBin) GetChild() gtki.Widget {
-	return nil
+func (m *MockBin) GetChild() gtki.Widget {
+	return ret[gtki.Widget](m.Called(), 0)
 }

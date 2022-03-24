@@ -6,33 +6,39 @@ type MockNotebook struct {
 	MockContainer
 }
 
-func (*MockNotebook) NextPage() {
+func (m *MockNotebook) NextPage() {
+	m.Called()
 }
 
-func (*MockNotebook) PrevPage() {
+func (m *MockNotebook) PrevPage() {
+	m.Called()
 }
 
-func (*MockNotebook) GetCurrentPage() int {
-	return 0
+func (m *MockNotebook) GetCurrentPage() int {
+	return m.Called().Int(0)
 }
 
-func (*MockNotebook) GetNPages() int {
-	return 0
+func (m *MockNotebook) GetNPages() int {
+	return m.Called().Int(0)
 }
 
-func (*MockNotebook) SetCurrentPage(v1 int) {
+func (m *MockNotebook) SetCurrentPage(v1 int) {
+	m.Called(v1)
 }
 
-func (*MockNotebook) SetShowTabs(v1 bool) {
+func (m *MockNotebook) SetShowTabs(v1 bool) {
+	m.Called(v1)
 }
 
-func (*MockNotebook) AppendPage(v1, v2 gtki.Widget) int {
-	return 0
+func (m *MockNotebook) AppendPage(v1, v2 gtki.Widget) int {
+	return m.Called(v1, v2).Int(0)
 }
 
-func (*MockNotebook) GetNthPage(v1 int) (gtki.Widget, error) {
-	return nil, nil
+func (m *MockNotebook) GetNthPage(v1 int) (gtki.Widget, error) {
+	args := m.Called(v1)
+	return ret[gtki.Widget](args, 0), args.Error(1)
 }
 
-func (*MockNotebook) SetTabLabelText(v1 gtki.Widget, v2 string) {
+func (m *MockNotebook) SetTabLabelText(v1 gtki.Widget, v2 string) {
+	m.Called(v1, v2)
 }

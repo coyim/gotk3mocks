@@ -1,13 +1,14 @@
 package gtk
 
 import (
-	"github.com/coyim/gotk3adapter/glib_mock"
 	"github.com/coyim/gotk3adapter/gtki"
+	"github.com/coyim/gotk3mocks/glib"
 )
 
 type MockSizeGroup struct {
-	glib_mock.MockObject
+	glib.MockObject
 }
 
-func (*MockSizeGroup) SetMode(gtki.SizeGroupMode) {
+func (m *MockSizeGroup) SetMode(v1 gtki.SizeGroupMode) {
+	m.Called(v1)
 }

@@ -4,9 +4,10 @@ type MockRevealer struct {
 	MockBin
 }
 
-func (*MockRevealer) SetRevealChild(revealChild bool) {
+func (m *MockRevealer) SetRevealChild(v1 bool) {
+	m.Called(v1)
 }
 
-func (*MockRevealer) GetRevealChild() bool {
-	return false
+func (m *MockRevealer) GetRevealChild() bool {
+	return m.Called().Bool(0)
 }

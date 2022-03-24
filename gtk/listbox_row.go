@@ -4,6 +4,6 @@ type MockListBoxRow struct {
 	MockBin
 }
 
-func (*MockListBoxRow) GetIndex() int {
-	return 0
+func (m *MockListBoxRow) GetIndex() int {
+	return m.Called().Int(0)
 }

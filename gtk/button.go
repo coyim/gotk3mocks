@@ -6,12 +6,15 @@ type MockButton struct {
 	MockBin
 }
 
-func (*MockButton) SetImage(v1 gtki.Widget) {
+func (m *MockButton) SetImage(v1 gtki.Widget) {
+	m.Called(v1)
 }
 
-func (*MockButton) GetLabel() (string, error) {
-	return "", nil
+func (m *MockButton) GetLabel() (string, error) {
+	args := m.Called()
+	return args.String(0), args.Error(1)
 }
 
-func (*MockButton) SetLabel(v1 string) {
+func (m *MockButton) SetLabel(v1 string) {
+	m.Called(v1)
 }

@@ -7,28 +7,34 @@ type MockBox struct {
 	gtki.Orientable
 }
 
-func (*MockBox) PackEnd(v1 gtki.Widget, v2, v3 bool, v4 uint) {
+func (m *MockBox) PackEnd(v1 gtki.Widget, v2, v3 bool, v4 uint) {
+	m.Called(v1, v2, v3, v4)
 }
 
-func (*MockBox) PackStart(v1 gtki.Widget, v2, v3 bool, v4 uint) {
+func (m *MockBox) PackStart(v1 gtki.Widget, v2, v3 bool, v4 uint) {
+	m.Called(v1, v2, v3, v4)
 }
 
-func (*MockBox) SetChildPacking(v1 gtki.Widget, v2, v3 bool, v4 uint, v5 gtki.PackType) {
+func (m *MockBox) SetChildPacking(v1 gtki.Widget, v2, v3 bool, v4 uint, v5 gtki.PackType) {
+	m.Called(v1, v2, v3, v4, v5)
 }
 
-func (*MockBox) GetOrientation() gtki.Orientation {
-	return gtki.HorizontalOrientation
+func (m *MockBox) GetOrientation() gtki.Orientation {
+	return ret[gtki.Orientation](m.Called(), 0)
 }
 
-func (*MockBox) SetOrientation(o gtki.Orientation) {
+func (m *MockBox) SetOrientation(v1 gtki.Orientation) {
+	m.Called(v1)
 }
 
-func (*MockBox) SetCenterWidget(gtki.Widget) {
+func (m *MockBox) SetCenterWidget(v1 gtki.Widget) {
+	m.Called(v1)
 }
 
-func (*MockBox) GetCenterWidget() gtki.Widget {
-	return nil
+func (m *MockBox) GetCenterWidget() gtki.Widget {
+	return ret[gtki.Widget](m.Called(), 0)
 }
 
-func (*MockBox) SetFocusVAdjustment(a gtki.Adjustment) {
+func (m *MockBox) SetFocusVAdjustment(v1 gtki.Adjustment) {
+	m.Called(v1)
 }

@@ -6,9 +6,10 @@ type MockDialog struct {
 	MockWindow
 }
 
-func (*MockDialog) Run() int {
-	return 0
+func (m *MockDialog) Run() int {
+	return m.Called().Int(0)
 }
 
-func (*MockDialog) SetDefaultResponse(v1 gtki.ResponseType) {
+func (m *MockDialog) SetDefaultResponse(v1 gtki.ResponseType) {
+	m.Called(v1)
 }

@@ -6,23 +6,26 @@ type MockSpinButton struct {
 	MockEntry
 }
 
-func (*MockSpinButton) GetValueAsInt() int {
-	return 0
+func (m *MockSpinButton) GetValueAsInt() int {
+	return m.Called().Int(0)
 }
 
-func (*MockSpinButton) SetValue(float64) {
+func (m *MockSpinButton) SetValue(v1 float64) {
+	m.Called(v1)
 }
 
-func (*MockSpinButton) GetValue() float64 {
-	return 0
+func (m *MockSpinButton) GetValue() float64 {
+	return ret[float64](m.Called(), 0)
 }
 
-func (*MockSpinButton) GetAdjustment() gtki.Adjustment {
-	return nil
+func (m *MockSpinButton) GetAdjustment() gtki.Adjustment {
+	return ret[gtki.Adjustment](m.Called(), 0)
 }
 
-func (*MockSpinButton) SetRange(float64, float64) {
+func (m *MockSpinButton) SetRange(v1 float64, v2 float64) {
+	m.Called(v1, v2)
 }
 
-func (*MockSpinButton) SetIncrements(float64, float64) {
+func (m *MockSpinButton) SetIncrements(v1 float64, v2 float64) {
+	m.Called(v1, v2)
 }

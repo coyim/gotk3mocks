@@ -1,64 +1,71 @@
 package gtk
 
 import (
-	"github.com/coyim/gotk3adapter/glib_mock"
 	"github.com/coyim/gotk3adapter/gtki"
+	"github.com/coyim/gotk3mocks/glib"
 )
 
 type MockTextBuffer struct {
-	glib_mock.MockObject
+	glib.MockObject
 }
 
-func (*MockTextBuffer) ApplyTagByName(v1 string, v2, v3 gtki.TextIter) {
+func (m *MockTextBuffer) ApplyTagByName(v1 string, v2, v3 gtki.TextIter) {
+	m.Called(v1, v2, v3)
 }
 
-func (*MockTextBuffer) GetCharCount() int {
-	return 0
+func (m *MockTextBuffer) GetCharCount() int {
+	return m.Called().Int(0)
 }
 
-func (*MockTextBuffer) GetEndIter() gtki.TextIter {
-	return nil
+func (m *MockTextBuffer) GetEndIter() gtki.TextIter {
+	return ret[gtki.TextIter](m.Called(), 0)
 }
 
-func (*MockTextBuffer) GetIterAtOffset(v1 int) gtki.TextIter {
-	return nil
+func (m *MockTextBuffer) GetIterAtOffset(v1 int) gtki.TextIter {
+	return ret[gtki.TextIter](m.Called(v1), 0)
 }
 
-func (*MockTextBuffer) GetLineCount() int {
-	return 0
+func (m *MockTextBuffer) GetLineCount() int {
+	return m.Called().Int(0)
 }
 
-func (*MockTextBuffer) GetStartIter() gtki.TextIter {
-	return nil
+func (m *MockTextBuffer) GetStartIter() gtki.TextIter {
+	return ret[gtki.TextIter](m.Called(), 0)
 }
 
-func (*MockTextBuffer) Insert(v1 gtki.TextIter, v2 string) {
+func (m *MockTextBuffer) Insert(v1 gtki.TextIter, v2 string) {
+	m.Called(v1, v2)
 }
 
-func (*MockTextBuffer) InsertAtCursor(v1 string) {
+func (m *MockTextBuffer) InsertAtCursor(v1 string) {
+	m.Called(v1)
 }
 
-func (*MockTextBuffer) InsertWithTagByName(v1 gtki.TextIter, v2, v3 string) {
+func (m *MockTextBuffer) InsertWithTagByName(v1 gtki.TextIter, v2, v3 string) {
+	m.Called(v1, v2, v3)
 }
 
-func (*MockTextBuffer) GetText(gtki.TextIter, gtki.TextIter, bool) string {
-	return ""
+func (m *MockTextBuffer) GetText(v1 gtki.TextIter, v2 gtki.TextIter, v3 bool) string {
+	return m.Called(v1, v2, v3).String(0)
 }
 
-func (*MockTextBuffer) SetText(string) {
+func (m *MockTextBuffer) SetText(v1 string) {
+	m.Called(v1)
 }
 
-func (*MockTextBuffer) Delete(gtki.TextIter, gtki.TextIter) {
+func (m *MockTextBuffer) Delete(v1 gtki.TextIter, v2 gtki.TextIter) {
+	m.Called(v1, v2)
 }
 
-func (*MockTextBuffer) GetBounds() (gtki.TextIter, gtki.TextIter) {
-	return nil, nil
+func (m *MockTextBuffer) GetBounds() (gtki.TextIter, gtki.TextIter) {
+	args := m.Called()
+	return ret[gtki.TextIter](args, 0), ret[gtki.TextIter](args, 1)
 }
 
-func (*MockTextBuffer) CreateMark(string, gtki.TextIter, bool) gtki.TextMark {
-	return nil
+func (m *MockTextBuffer) CreateMark(v1 string, v2 gtki.TextIter, v3 bool) gtki.TextMark {
+	return ret[gtki.TextMark](m.Called(v1, v2, v3), 0)
 }
 
-func (*MockTextBuffer) GetIterAtMark(gtki.TextMark) gtki.TextIter {
-	return nil
+func (m *MockTextBuffer) GetIterAtMark(v1 gtki.TextMark) gtki.TextIter {
+	return ret[gtki.TextIter](m.Called(v1), 0)
 }

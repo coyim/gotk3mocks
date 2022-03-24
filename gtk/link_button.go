@@ -6,16 +6,19 @@ type MockLinkButton struct {
 	MockBin
 }
 
-func (*MockLinkButton) GetUri() string {
-	return ""
+func (m *MockLinkButton) GetUri() string {
+	return m.Called().String(0)
 }
 
-func (*MockLinkButton) SetUri(uri string) {
+func (m *MockLinkButton) SetUri(v1 string) {
+	m.Called(v1)
 }
 
-func (*MockLinkButton) SetImage(v gtki.Widget) {
+func (m *MockLinkButton) SetImage(v1 gtki.Widget) {
+	m.Called(v1)
 }
 
-func (*MockLinkButton) GetLabel() (string, error) {
-	return "", nil
+func (m *MockLinkButton) GetLabel() (string, error) {
+	args := m.Called()
+	return args.String(0), args.Error(1)
 }

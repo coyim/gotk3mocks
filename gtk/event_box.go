@@ -4,16 +4,18 @@ type MockEventBox struct {
 	MockBin
 }
 
-func (*MockEventBox) SetAboveChild(v1 bool) {
+func (m *MockEventBox) SetAboveChild(v1 bool) {
+	m.Called(v1)
 }
 
-func (*MockEventBox) GetAboveChild() bool {
-	return false
+func (m *MockEventBox) GetAboveChild() bool {
+	return m.Called().Bool(0)
 }
 
-func (*MockEventBox) SetVisibleWindow(v1 bool) {
+func (m *MockEventBox) SetVisibleWindow(v1 bool) {
+	m.Called(v1)
 }
 
-func (*MockEventBox) GetVisibleWindow() bool {
-	return false
+func (m *MockEventBox) GetVisibleWindow() bool {
+	return m.Called().Bool(0)
 }

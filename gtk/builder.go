@@ -1,25 +1,27 @@
 package gtk
 
 import (
-	"github.com/coyim/gotk3adapter/glib_mock"
 	"github.com/coyim/gotk3adapter/glibi"
+	"github.com/coyim/gotk3mocks/glib"
 )
 
 type MockBuilder struct {
-	glib_mock.MockObject
+	glib.MockObject
 }
 
-func (*MockBuilder) AddFromString(v1 string) error {
-	return nil
+func (m *MockBuilder) AddFromString(v1 string) error {
+	return m.Called(v1).Error(0)
 }
 
-func (*MockBuilder) AddFromResource(v1 string) error {
-	return nil
+func (m *MockBuilder) AddFromResource(v1 string) error {
+	return m.Called(v1).Error(0)
 }
 
-func (*MockBuilder) GetObject(v1 string) (glibi.Object, error) {
-	return nil, nil
+func (m *MockBuilder) GetObject(v1 string) (glibi.Object, error) {
+	args := m.Called(v1)
+	return ret[glibi.Object](args, 0), args.Error(1)
 }
 
-func (*MockBuilder) ConnectSignals(v1 map[string]interface{}) {
+func (m *MockBuilder) ConnectSignals(v1 map[string]interface{}) {
+	m.Called(v1)
 }

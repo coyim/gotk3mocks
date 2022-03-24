@@ -6,5 +6,6 @@ type MockMenuShell struct {
 	MockContainer
 }
 
-func (*MockMenuShell) Append(v1 gtki.MenuItem) {
+func (m *MockMenuShell) Append(v1 gtki.MenuItem) {
+	m.Called(v1)
 }

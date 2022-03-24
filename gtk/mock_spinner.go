@@ -6,12 +6,15 @@ type MockSpinner struct {
 	MockWidget
 }
 
-func (*MockSpinner) Start() {
+func (m *MockSpinner) Start() {
+	m.Called()
 }
 
-func (*MockSpinner) Stop() {
+func (m *MockSpinner) Stop() {
+	m.Called()
 }
 
-func (*Mock) SpinnerNew() (gtki.Spinner, error) {
-	return nil, nil
+func (m *Mock) SpinnerNew() (gtki.Spinner, error) {
+	args := m.Called()
+	return ret[gtki.Spinner](args, 0), args.Error(1)
 }

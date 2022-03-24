@@ -4,12 +4,14 @@ type MockHeaderBar struct {
 	MockContainer
 }
 
-func (*MockHeaderBar) SetSubtitle(v1 string) {
+func (m *MockHeaderBar) SetSubtitle(v1 string) {
+	m.Called(v1)
 }
 
-func (*MockHeaderBar) SetShowCloseButton(v1 bool) {
+func (m *MockHeaderBar) SetShowCloseButton(v1 bool) {
+	m.Called(v1)
 }
 
-func (*MockHeaderBar) GetShowCloseButton() bool {
-	return false
+func (m *MockHeaderBar) GetShowCloseButton() bool {
+	return m.Called().Bool(0)
 }

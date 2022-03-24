@@ -6,36 +6,44 @@ type MockComboBox struct {
 	MockBin
 }
 
-func (*MockComboBox) GetActiveIter() (gtki.TreeIter, error) {
-	return nil, nil
+func (m *MockComboBox) GetActiveIter() (gtki.TreeIter, error) {
+	args := m.Called()
+	return ret[gtki.TreeIter](args, 0), args.Error(1)
 }
 
-func (*MockComboBox) GetActiveID() string {
-	return ""
+func (m *MockComboBox) GetActiveID() string {
+	return m.Called().String(0)
 }
 
-func (*MockComboBox) GetActive() int {
-	return 0
+func (m *MockComboBox) GetActive() int {
+	return m.Called().Int(0)
 }
 
-func (*MockComboBox) SetActive(v1 int) {
+func (m *MockComboBox) SetActive(v1 int) {
+	m.Called(v1)
 }
 
-func (*MockComboBox) SetModel(v1 gtki.TreeModel) {
+func (m *MockComboBox) SetModel(v1 gtki.TreeModel) {
+	m.Called(v1)
 }
 
-func (*MockComboBox) AddAttribute(v1 gtki.CellRenderer, v2 string, v3 int) {
+func (m *MockComboBox) AddAttribute(v1 gtki.CellRenderer, v2 string, v3 int) {
+	m.Called(v1, v2, v3)
 }
 
-func (*MockComboBox) PackStart(v1 gtki.CellRenderer, v2 bool) {
+func (m *MockComboBox) PackStart(v1 gtki.CellRenderer, v2 bool) {
+	m.Called(v1, v2)
 }
 
-func (*MockComboBox) SetIDColumn(v1 int) {
+func (m *MockComboBox) SetIDColumn(v1 int) {
+	m.Called(v1)
 }
 
-func (*MockComboBox) SetEntryTextColumn(v1 int) {
+func (m *MockComboBox) SetEntryTextColumn(v1 int) {
+	m.Called(v1)
 }
 
-func (*MockComboBox) GetToggleButton() (gtki.Button, error) {
-	return nil, nil
+func (m *MockComboBox) GetToggleButton() (gtki.Button, error) {
+	args := m.Called()
+	return ret[gtki.Button](args, 0), args.Error(1)
 }

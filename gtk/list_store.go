@@ -1,58 +1,64 @@
 package gtk
 
 import (
-	"github.com/coyim/gotk3adapter/glib_mock"
 	"github.com/coyim/gotk3adapter/glibi"
 	"github.com/coyim/gotk3adapter/gtki"
+	"github.com/coyim/gotk3mocks/glib"
 )
 
 type MockListStore struct {
-	glib_mock.MockObject
+	glib.MockObject
 }
 
-func (*MockListStore) Clear() {
+func (m *MockListStore) Clear() {
+	m.Called()
 }
 
-func (*MockListStore) Append() gtki.TreeIter {
-	return nil
+func (m *MockListStore) Append() gtki.TreeIter {
+	return ret[gtki.TreeIter](m.Called(), 0)
 }
 
-func (*MockListStore) Remove(v2 gtki.TreeIter) bool {
-	return false
+func (m *MockListStore) Remove(v1 gtki.TreeIter) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockListStore) Set2(v2 gtki.TreeIter, v3 []int, v4 []interface{}) error {
-	return nil
+func (m *MockListStore) Set2(v1 gtki.TreeIter, v2 []int, v3 []interface{}) error {
+	return m.Called(v1, v2, v3).Error(0)
 }
 
-func (*MockListStore) SetValue(v1 gtki.TreeIter, v2 int, v3 interface{}) error {
-	return nil
+func (m *MockListStore) SetValue(v1 gtki.TreeIter, v2 int, v3 interface{}) error {
+	return m.Called(v1, v2, v3).Error(0)
 }
 
-func (*MockListStore) GetIter(v1 gtki.TreePath) (gtki.TreeIter, error) {
-	return nil, nil
+func (m *MockListStore) GetIter(v1 gtki.TreePath) (gtki.TreeIter, error) {
+	args := m.Called(v1)
+	return ret[gtki.TreeIter](args, 0), args.Error(1)
 }
 
-func (*MockListStore) GetIterFirst() (gtki.TreeIter, bool) {
-	return nil, false
+func (m *MockListStore) GetIterFirst() (gtki.TreeIter, bool) {
+	args := m.Called()
+	return ret[gtki.TreeIter](args, 0), args.Bool(1)
 }
 
-func (*MockListStore) GetIterFromString(v1 string) (gtki.TreeIter, error) {
-	return nil, nil
+func (m *MockListStore) GetIterFromString(v1 string) (gtki.TreeIter, error) {
+	args := m.Called(v1)
+	return ret[gtki.TreeIter](args, 0), args.Error(1)
 }
 
-func (*MockListStore) GetPath(v1 gtki.TreeIter) (gtki.TreePath, error) {
-	return nil, nil
+func (m *MockListStore) GetPath(v1 gtki.TreeIter) (gtki.TreePath, error) {
+	args := m.Called(v1)
+	return ret[gtki.TreePath](args, 0), args.Error(1)
 }
 
-func (*MockListStore) GetValue(v1 gtki.TreeIter, v2 int) (glibi.Value, error) {
-	return nil, nil
+func (m *MockListStore) GetValue(v1 gtki.TreeIter, v2 int) (glibi.Value, error) {
+	args := m.Called(v1, v2)
+	return ret[glibi.Value](args, 0), args.Error(1)
 }
 
-func (*MockListStore) IterNext(v1 gtki.TreeIter) bool {
-	return false
+func (m *MockListStore) IterNext(v1 gtki.TreeIter) bool {
+	return m.Called(v1).Bool(0)
 }
 
-func (*MockListStore) GetColumnType(index int) glibi.Type {
-	return glibi.TYPE_NONE
+func (m *MockListStore) GetColumnType(v1 int) glibi.Type {
+	return ret[glibi.Type](m.Called(v1), 0)
 }

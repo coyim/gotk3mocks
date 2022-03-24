@@ -1,24 +1,27 @@
 package gtk
 
 import (
-	"github.com/coyim/gotk3adapter/glib_mock"
+	"github.com/coyim/gotk3mocks/glib"
 	"github.com/coyim/gotk3adapter/gtki"
 )
 
 type MockTreeSelection struct {
-	glib_mock.MockObject
+	glib.MockObject
 }
 
-func (*MockTreeSelection) SelectIter(v1 gtki.TreeIter) {
+func (m *MockTreeSelection) SelectIter(v1 gtki.TreeIter) {
+	m.Called(v1)
 }
 
-func (*MockTreeSelection) UnselectPath(v1 gtki.TreePath) {
+func (m *MockTreeSelection) UnselectPath(v1 gtki.TreePath) {
+	m.Called(v1)
 }
 
-func (*MockTreeSelection) GetSelected() (gtki.TreeModel, gtki.TreeIter, bool) {
-	return nil, nil, false
+func (m *MockTreeSelection) GetSelected() (gtki.TreeModel, gtki.TreeIter, bool) {
+	args := m.Called()
+	return ret[gtki.TreeModel](args, 0), ret[gtki.TreeIter](args, 1), args.Bool(2)
 }
 
-func (*MockTreeSelection) GetSelectedRows(gtki.TreeModel) []gtki.TreePath {
-	return nil
+func (m *MockTreeSelection) GetSelectedRows(v1 gtki.TreeModel) []gtki.TreePath {
+	return ret[[]gtki.TreePath](m.Called(v1), 0)
 }

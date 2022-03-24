@@ -1,11 +1,11 @@
 package gtk
 
-import "github.com/coyim/gotk3adapter/glib_mock"
+import "github.com/coyim/gotk3mocks/glib"
 
 type MockCssProvider struct {
-	glib_mock.MockObject
+	glib.MockObject
 }
 
-func (*MockCssProvider) LoadFromData(v1 string) error {
-	return nil
+func (m *MockCssProvider) LoadFromData(v1 string) error {
+	return m.Called(v1).Error(0)
 }

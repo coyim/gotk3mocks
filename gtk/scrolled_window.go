@@ -6,6 +6,6 @@ type MockScrolledWindow struct {
 	MockBin
 }
 
-func (*MockScrolledWindow) GetVAdjustment() gtki.Adjustment {
-	return nil
+func (m *MockScrolledWindow) GetVAdjustment() gtki.Adjustment {
+	return ret[gtki.Adjustment](m.Called(), 0)
 }
