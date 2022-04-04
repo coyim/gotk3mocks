@@ -1,18 +1,20 @@
 package glib
 
-import "github.com/coyim/gotk3adapter/glibi"
-import "github.com/stretchr/testify/mock"
+import (
+	"github.com/coyim/gotk3adapter/glibi"
+	"github.com/stretchr/testify/mock"
+)
 
 type Mock struct {
 	mock.Mock
 }
 
-func ret[T any](args mock.Arguments, index int) T {
-	var ret T
-	v := args.Get(index)
-	if v != nil {
-		ret = v.(T)
-	}
+type getter interface {
+	Get(int) interface{}
+}
+
+func ret[T any](args getter, index int) T {
+	ret, _ := args.Get(index).(T)
 	return ret
 }
 
@@ -113,7 +115,7 @@ func (m *Mock) MenuItemNewSection(v1 string, v2 glibi.MenuModel) glibi.MenuItem 
 	return ret[glibi.MenuItem](m.Called(v1, v2), 0)
 }
 
-func (m *Mock) MenuItemNewSubmenu(v1  string, v2 glibi.MenuModel) glibi.MenuItem {
+func (m *Mock) MenuItemNewSubmenu(v1 string, v2 glibi.MenuModel) glibi.MenuItem {
 	return ret[glibi.MenuItem](m.Called(v1, v2), 0)
 }
 
