@@ -44,6 +44,11 @@ func (m *Mock) ApplicationNew(v1 string, v2 glibi.ApplicationFlags) (gtki.Applic
 	return ret[gtki.Application](args, 0), args.Error(1)
 }
 
+func (m *Mock) ApplicationWindowNew(v1 gtki.Application) (gtki.ApplicationWindow, error) {
+	args := m.Called(v1)
+	return ret[gtki.ApplicationWindow](args, 0), args.Error(1)
+}
+
 func (m *Mock) AssistantNew() (gtki.Assistant, error) {
 	args := m.Called()
 	return ret[gtki.Assistant](args, 0), args.Error(1)

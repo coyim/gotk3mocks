@@ -1,5 +1,7 @@
 github.com/coyim/gotk3adapter v0.0.0-20220330185105-10f32a4b8041 h1:0VWhoqf1wUKywQJFpyqL1Oxf23R03LBEdmWmiGRtQio=
 github.com/coyim/gotk3adapter v0.0.0-20220330185105-10f32a4b8041/go.mod h1:5NK0rFFScmo76AEmCcSM0RqVJIeCRdtD2i8dmaki4QQ=
+github.com/coyim/gotk3adapter v0.0.0-20220404184013-2ae70c77a363 h1:0xbPV0peZM3ZXTXDZLBXmp9sB0leOpVFPgWStmedPy0=
+github.com/coyim/gotk3adapter v0.0.0-20220404184013-2ae70c77a363/go.mod h1:5NK0rFFScmo76AEmCcSM0RqVJIeCRdtD2i8dmaki4QQ=
 github.com/davecgh/go-spew v1.1.0 h1:ZDRjVQ15GmhC3fiQ8ni8+OwkZQO4DARzQgrnXU1Liz8=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
