@@ -324,3 +324,18 @@ func (m *Mock) WindowNew(v1 gtki.WindowType) (gtki.Window, error) {
 	args := m.Called(v1)
 	return ret[gtki.Window](args, 0), args.Error(1)
 }
+
+func (m *Mock) IconThemeNew() (gtki.IconTheme, error) {
+	args := m.Called()
+	return ret[gtki.IconTheme](args, 0), args.Error(1)
+}
+
+func (m *Mock) IconThemeGetDefault() gtki.IconTheme {
+	args := m.Called()
+	return ret[gtki.IconTheme](args, 0)
+}
+
+func (m *Mock) IconThemeGetForScreen(v1 gdki.Screen) gtki.IconTheme {
+	args := m.Called(v1)
+	return ret[gtki.IconTheme](args, 0)
+}
