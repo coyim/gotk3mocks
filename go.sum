@@ -1,7 +1,11 @@
 github.com/coyim/gotk3adapter v0.0.0-20220707154823-2087a87ccf9a h1:365ljdp0REnZH6n2Ox68Yr/LlbHqymzSRXh0ZxdLh0E=
 github.com/coyim/gotk3adapter v0.0.0-20220707154823-2087a87ccf9a/go.mod h1:5NK0rFFScmo76AEmCcSM0RqVJIeCRdtD2i8dmaki4QQ=
+github.com/coyim/gotk3adapter v0.0.1 h1:+batCWbnuMOCOW+rbUkuGPchrKk9NGXih68Qp9mhuqY=
+github.com/coyim/gotk3adapter v0.0.1/go.mod h1:Lne2FpOCVmoN22qIRDPxw3ia1s15aw1qfCmdG+8PUOE=
+github.com/coyim/gotk3extra v0.0.1/go.mod h1:W1H9cAbTYeQjtVIGP4+LuBZHlcEMJ0mxNdG2bsSa7PM=
 github.com/davecgh/go-spew v1.1.0 h1:ZDRjVQ15GmhC3fiQ8ni8+OwkZQO4DARzQgrnXU1Liz8=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
+github.com/gotk3/gotk3 v0.6.2-0.20220918105832-655547b6cbbc/go.mod h1:/hqFpkNa9T3JgNAE2fLvCdov7c5bw//FHNZrZ3Uv9/Q=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/stretchr/objx v0.1.0 h1:4G4v2dO3VZwixGIRoQ5Lfboy6nUhCyYzaqnIAPPhYs4=
