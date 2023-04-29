@@ -3,7 +3,7 @@ module github.com/coyim/gotk3mocks
 go 1.18
 
 require (
-	github.com/coyim/gotk3adapter v0.0.1
+	github.com/coyim/gotk3adapter v0.0.2
 	github.com/stretchr/testify v1.7.1
 )
 
